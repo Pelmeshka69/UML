@@ -1,0 +1,7 @@
+C:\Users\Admin\source\repos\ITStepAcademy\ITStepAcademy\bin\Debug\ITStepAcademy.exe.config
+C:\Users\Admin\source\repos\ITStepAcademy\ITStepAcademy\bin\Debug\ITStepAcademy.exe
+C:\Users\Admin\source\repos\ITStepAcademy\ITStepAcademy\bin\Debug\ITStepAcademy.pdb
+C:\Users\Admin\source\repos\ITStepAcademy\ITStepAcademy\obj\Debug\ITStepAcademy.csproj.AssemblyReference.cache
+C:\Users\Admin\source\repos\ITStepAcademy\ITStepAcademy\obj\Debug\ITStepAcademy.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\ITStepAcademy\ITStepAcademy\obj\Debug\ITStepAcademy.exe
+C:\Users\Admin\source\repos\ITStepAcademy\ITStepAcademy\obj\Debug\ITStepAcademy.pdb

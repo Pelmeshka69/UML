@@ -38,7 +38,9 @@ namespace ITStepAcademy
                 Console.WriteLine("2. Delete group");
                 Console.WriteLine("3. Edit group");
                 Console.WriteLine("4. Show group information");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("5. Add student to group");
+                Console.WriteLine("6. Change teacher's name"); // Додавання можливості зміни імені вчителю
+                Console.WriteLine("7. Exit");
                 Console.Write("Choose an option: ");
                 int option = int.Parse(Console.ReadLine());
 
@@ -101,9 +103,66 @@ namespace ITStepAcademy
                 }
                 else if (option == 5)
                 {
+                    Console.Write("Enter the name of the group to add student to: ");
+                    string groupName = Console.ReadLine();
+                    Group group = groups.FirstOrDefault(g => g.Name == groupName);
+                    if (group != null)
+                    {
+                        Student student = new Student();
+                        Console.Write("Enter student's name: ");
+                        student.FullName = Console.ReadLine();
+                        Console.Write("Enter student's phone: ");
+                        student.Phone = Console.ReadLine();
+                        Console.Write("Enter student's birth year: ");
+                        student.BirthYear = int.Parse(Console.ReadLine());
+                        Console.Write("Enter student's programming grade: ");
+                        int programmingGrade = int.Parse(Console.ReadLine());
+                        student.Grades["Programming"] = programmingGrade;
+                        Console.Write("Enter student's 3D modeling grade: ");
+                        int modelingGrade = int.Parse(Console.ReadLine());
+                        student.Grades["3D Modeling"] = modelingGrade;
+                        Console.Write("Enter student's robotics grade: ");
+                        int roboticsGrade = int.Parse(Console.ReadLine());
+                        student.Grades["Robotics"] = roboticsGrade;
+
+                        group.Students.Add(student);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Group not found.");
+                    }
+                }
+                else if (option == 6)
+                {
+                    Console.Write("Enter the name of the group to change teacher's name: ");
+                    string groupName = Console.ReadLine();
+                    Group group = groups.FirstOrDefault(g => g.Name == groupName);
+                    if (group != null)
+                    {
+                        Console.Write("Enter new teacher's full name: ");
+                        group.Teacher.FullName = Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Group not found.");
+                    }
+                }
+                else if (option == 7)
+                {
+                    SaveGroupsToXml(groups);
                     break;
                 }
             }
+        }
+
+        static void SaveGroupsToXml(List<Group> groups)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Group>));
+            using (TextWriter writer = new StreamWriter("groups.xml"))
+            {
+                serializer.Serialize(writer, groups);
+            }
+            Console.WriteLine("Data saved to groups.xml");
         }
     }
 }
